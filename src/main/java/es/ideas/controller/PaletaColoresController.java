@@ -22,30 +22,30 @@ import javafx.scene.text.Text;
  *
  * @author Abel & Narciso
  */
-public class PaletaColoresController implements javafx.fxml.Initializable {
+public class PaletaColoresController implements Initializable {
 
-    @javafx.fxml.FXML
-    private javafx.scene.control.Slider sliderRojo;
-    @javafx.fxml.FXML
-    private javafx.scene.control.Slider sliderVerde;
-    @javafx.fxml.FXML
-    private javafx.scene.control.Slider sliderAzul;
-    @javafx.fxml.FXML
-    private javafx.scene.shape.Circle circulo;
-    @javafx.fxml.FXML
-    private javafx.scene.control.Label textoRojo;
-    @javafx.fxml.FXML
-    private javafx.scene.control.Label textoVerde;
-    @javafx.fxml.FXML
-    private javafx.scene.control.Label textoAzul;
-    @javafx.fxml.FXML
-    private javafx.scene.text.Text hexColor;
-    @javafx.fxml.FXML
-    private javafx.scene.control.Button boton;
-    @javafx.fxml.FXML
-    private javafx.scene.control.ListView<Rgb> lista;
+    @FXML
+    private Slider sliderRojo;
+    @FXML
+    private Slider sliderVerde;
+    @FXML
+    private Slider sliderAzul;
+    @FXML
+    private Circle circulo;
+    @FXML
+    private Label textoRojo;
+    @FXML
+    private Label textoVerde;
+    @FXML
+    private Label textoAzul;
+    @FXML
+    private Text hexColor;
+    @FXML
+    private Button boton;
+    @FXML
+    private ListView<Rgb> lista;
     private DatosRgb datos = new DatosRgb();
-    private javafx.collections.ObservableList<Rgb> listaRgb = datos.getDatosRgb();
+    private ObservableList<Rgb> listaRgb = datos.getDatosRgb();
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
@@ -59,27 +59,27 @@ public class PaletaColoresController implements javafx.fxml.Initializable {
     private void cambiaColor() {
         lista.setItems(listaRgb);
         
-        sliderRojo.valueProperty().addListener(new javafx.beans.value.ChangeListener<Number>() {
+        sliderRojo.valueProperty().addListener(new ChangeListener<Number>() {
             @Override
-            public void changed(javafx.beans.value.ObservableValue<? extends Number> ov, Number t, Number t1) {
+            public void changed(ObservableValue<? extends Number> ov, Number t, Number t1) {
                 circulo.setFill(creaColor());
                 textoRojo.setText("Rojo: " + (int) sliderRojo.getValue());
                 codigoHex();
             } 
         });
         
-        sliderVerde.valueProperty().addListener(new javafx.beans.value.ChangeListener<Number>() {
+        sliderVerde.valueProperty().addListener(new ChangeListener<Number>() {
             @Override
-            public void changed(javafx.beans.value.ObservableValue<? extends Number> ov, Number t, Number t1) {
+            public void changed(ObservableValue<? extends Number> ov, Number t, Number t1) {
                 circulo.setFill(creaColor());
                 textoVerde.setText("Verde: " + (int) sliderVerde.getValue());
                 codigoHex();
             } 
         });
         
-        sliderAzul.valueProperty().addListener(new javafx.beans.value.ChangeListener<Number>() {
+        sliderAzul.valueProperty().addListener(new ChangeListener<Number>() {
             @Override
-            public void changed(javafx.beans.value.ObservableValue<? extends Number> ov, Number t, Number t1) {
+            public void changed(ObservableValue<? extends Number> ov, Number t, Number t1) {
                 circulo.setFill(creaColor());
                 textoAzul.setText("Azul: " + (int) sliderAzul.getValue());
                 codigoHex();
@@ -87,12 +87,12 @@ public class PaletaColoresController implements javafx.fxml.Initializable {
         });
     }
     
-    private javafx.scene.paint.Color creaColor() {
+    private Color creaColor() {
         int rojo = (int) sliderRojo.getValue();
         int verde = (int) sliderVerde.getValue();
         int azul = (int) sliderAzul.getValue();
         
-        javafx.scene.paint.Color color = javafx.scene.paint.Color.rgb(rojo, verde, azul);
+        Color color = Color.rgb(rojo, verde, azul);
         
         return color;
     }
@@ -103,9 +103,9 @@ public class PaletaColoresController implements javafx.fxml.Initializable {
                         (int) sliderVerde.getValue(),
                         (int) sliderAzul.getValue()));
     }
-
-    @javafx.fxml.FXML
-    private void accionNuevo(javafx.event.ActionEvent event) {
+    
+    @FXML
+    private void accionNuevo(ActionEvent event) {
         Rgb rgb = new Rgb((int) sliderRojo.getValue(), 
                 (int) sliderVerde.getValue(), 
                 (int) sliderAzul.getValue(),
