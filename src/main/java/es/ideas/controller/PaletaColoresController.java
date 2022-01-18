@@ -112,7 +112,6 @@ public class PaletaColoresController implements Initializable {
                 hexColor.getText());
         
         listaRgb.add(rgb);
-        lista.getSelectionModel().select(rgb);
     }
 
 }
