@@ -1,8 +1,10 @@
 package es.ideas.model;
 
 import javafx.beans.Observable;
+import javafx.beans.property.IntegerProperty;
 import javafx.beans.property.SimpleIntegerProperty;
 import javafx.beans.property.SimpleStringProperty;
+import javafx.beans.property.StringProperty;
 import javafx.util.Callback;
 
 /**
@@ -10,10 +12,10 @@ import javafx.util.Callback;
  * @author Abel & Narciso
  */
 public class Rgb {
-    private final SimpleIntegerProperty red = new SimpleIntegerProperty(this, "red", 0);
-    private final SimpleIntegerProperty green = new SimpleIntegerProperty(this, "green", 0);
-    private final SimpleIntegerProperty blue = new SimpleIntegerProperty(this, "blue", 0);
-    private final SimpleStringProperty hex = new SimpleStringProperty(this, "hex", "");
+    private final IntegerProperty red = new SimpleIntegerProperty(this, "red", 0);
+    private final IntegerProperty green = new SimpleIntegerProperty(this, "green", 0);
+    private final IntegerProperty blue = new SimpleIntegerProperty(this, "blue", 0);
+    private final StringProperty hex = new SimpleStringProperty(this, "hex", "");
     
     public Rgb() {
         
@@ -26,21 +28,52 @@ public class Rgb {
         this.hex.set(hex);
     }
 
+    public int getRed() {
+        return red.getValue();
+    }
     
-    public SimpleIntegerProperty getRed() {
+    public int getGreen() {
+        return green.getValue();
+    }
+    
+    public int getBlue() {
+        return blue.getValue();
+    }
+    
+    public String getHex() {
+        return hex.toString();
+    }
+    
+    public IntegerProperty redProperty() {
         return red;
     }
 
-    public SimpleIntegerProperty getGreen() {
+    public IntegerProperty greenProperty() {
         return green;
     }
 
-    public SimpleIntegerProperty getBlue() {
+    public IntegerProperty blueProperty() {
         return blue;
     }
     
-    public SimpleStringProperty getHex() {
+    public StringProperty hexProperty() {
         return hex;
+    }
+    
+    public void setRed(int nuevoValor) {
+        this.red.setValue(nuevoValor);
+    }
+    
+    public void setGreen(int nuevoValor) {
+        this.green.setValue(nuevoValor);
+    }
+    
+    public void setBlue(int nuevoValor) {
+        this.blue.setValue(nuevoValor);
+    }
+    
+    public void setHex(String nuevoValor) {
+        this.hex.setValue(nuevoValor);
     }
     
     @Override
@@ -50,6 +83,6 @@ public class Rgb {
     
     public static Callback<Rgb, Observable[]> extractor =
             p-> new Observable[]{
-                p.getRed(),p.getGreen(),p.getBlue(),p.getHex()
+                p.redProperty(),p.greenProperty(),p.blueProperty(),p.hexProperty()
             };
 }
