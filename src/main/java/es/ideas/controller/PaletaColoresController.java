@@ -113,7 +113,22 @@ public class PaletaColoresController implements Initializable {
                 (int) sliderAzul.getValue(),
                 hexColor.getText());
         
-        listaRgb.add(rgb);
+        int contador = 0;
+        
+        if(listaRgb.isEmpty()) {
+            listaRgb.add(rgb);
+            contador++;
+        } else {
+            //Se recorre la lista en busca de un elemento igual al que voy a añadir
+            //Si el elemento ya está añadido, se suma 1 al contador. Para ello comparo los códigos HEX.
+            for (int i = 0; i < listaRgb.size(); i++) {                
+                if(listaRgb.get(i).getHex().equals(rgb.getHex())) {
+                    contador++;
+                }
+            }            
+        }
+        //Si el contador sigue en 0, el elemento es nuevo y se puede añadir
+        if(contador == 0) listaRgb.add(rgb);
     }
 
     @FXML
