@@ -44,7 +44,7 @@ public class Rgb {
     }
     
     public String getHex() {
-        return hex.toString();
+        return hex.getValue();
     }
     
     public IntegerProperty redProperty() {
