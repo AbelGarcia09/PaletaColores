@@ -77,7 +77,8 @@
                         <Font name="Britannic Bold" size="24.0" />
                      </font>
                   </Text>
-                  <Button fx:id="boton" layoutX="101.0" layoutY="328.0" mnemonicParsing="false" onAction="#accionNuevo" prefHeight="56.0" prefWidth="94.0" text="AÑADIR" AnchorPane.bottomAnchor="40.0" AnchorPane.topAnchor="328.0" />
+                  <Button fx:id="boton" layoutX="101.0" layoutY="283.0" mnemonicParsing="false" onAction="#accionNuevo" prefHeight="56.0" prefWidth="94.0" text="AÑADIR" AnchorPane.bottomAnchor="85.0" AnchorPane.topAnchor="283.0" />
+                  <Button fx:id="boton2" layoutX="101.0" layoutY="321.0" mnemonicParsing="false" onAction="#accionEliminar" prefHeight="30.0" prefWidth="94.0" text="ELIMINAR" />
                </children>
             </AnchorPane>
         </items>

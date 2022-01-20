@@ -46,6 +46,8 @@ public class PaletaColoresController implements Initializable {
     private ListView<Rgb> lista;
     private Rgb datos = new Rgb();
     private ObservableList<Rgb> listaRgb = datos.getRgb();
+    @FXML
+    private Button boton2;
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
@@ -112,6 +114,11 @@ public class PaletaColoresController implements Initializable {
                 hexColor.getText());
         
         listaRgb.add(rgb);
+    }
+
+    @FXML
+    private void accionEliminar(ActionEvent event) {
+        listaRgb.remove(lista.getSelectionModel().getSelectedItem());
     }
 
 }
