@@ -1,7 +1,7 @@
 package es.ideas.controller;
 
 import es.ideas.model.Rgb;
-import es.ideas.utils.DatosRgb;
+
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.beans.value.ChangeListener;
@@ -44,8 +44,8 @@ public class PaletaColoresController implements Initializable {
     private Button boton;
     @FXML
     private ListView<Rgb> lista;
-    private DatosRgb datos = new DatosRgb();
-    private ObservableList<Rgb> listaRgb = datos.getDatosRgb();
+    private Rgb datos = new Rgb();
+    private ObservableList<Rgb> listaRgb = datos.getRgb();
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {

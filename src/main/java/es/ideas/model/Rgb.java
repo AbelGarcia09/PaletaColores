@@ -5,6 +5,8 @@ import javafx.beans.property.IntegerProperty;
 import javafx.beans.property.SimpleIntegerProperty;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.util.Callback;
 
 /**
@@ -12,6 +14,7 @@ import javafx.util.Callback;
  * @author Abel & Narciso
  */
 public class Rgb {
+    private ObservableList<Rgb> listaRGB = FXCollections.observableArrayList(Rgb.extractor);
     private final IntegerProperty red = new SimpleIntegerProperty(this, "red", 0);
     private final IntegerProperty green = new SimpleIntegerProperty(this, "green", 0);
     private final IntegerProperty blue = new SimpleIntegerProperty(this, "blue", 0);
@@ -85,4 +88,9 @@ public class Rgb {
             p-> new Observable[]{
                 p.redProperty(),p.greenProperty(),p.blueProperty(),p.hexProperty()
             };
+
+    public ObservableList<Rgb> getRgb() {
+        
+        return listaRGB;
+    }
 }
