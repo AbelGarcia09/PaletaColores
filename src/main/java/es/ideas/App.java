@@ -12,11 +12,14 @@ public class App extends Application {
     @Override
     public void start(Stage stage) throws IOException {
         Scene escena;
-
+        
+        //Se carga la escena creada con Scene Builder.
         escena = new Scene(FXMLLoader.load(App.class.getResource("view/PaletaColoresFXML.fxml")));
 
         stage.setScene(escena);
         stage.setTitle("Paleta de colores");
+        
+        //Tamaño fijo
         stage.setResizable(false);
         stage.show();
     }
