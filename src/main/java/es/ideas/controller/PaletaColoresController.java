@@ -4,8 +4,6 @@ import es.ideas.model.Rgb;
 
 import java.net.URL;
 import java.util.ResourceBundle;
-import javafx.beans.value.ChangeListener;
-import javafx.beans.value.ObservableValue;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -61,31 +59,22 @@ public class PaletaColoresController implements Initializable {
     private void cambiaColor() {
         lista.setItems(listaRgb);
         
-        sliderRojo.valueProperty().addListener(new ChangeListener<Number>() {
-            @Override
-            public void changed(ObservableValue<? extends Number> ov, Number t, Number t1) {
-                circulo.setFill(creaColor());
-                textoRojo.setText("Rojo: " + (int) sliderRojo.getValue());
-                codigoHex();
-            } 
+        sliderRojo.valueProperty().addListener((obs, oldVal, newVal) -> {
+            circulo.setFill(creaColor());
+            textoRojo.setText("Rojo: " + (int) sliderRojo.getValue());
+            codigoHex();
         });
         
-        sliderVerde.valueProperty().addListener(new ChangeListener<Number>() {
-            @Override
-            public void changed(ObservableValue<? extends Number> ov, Number t, Number t1) {
-                circulo.setFill(creaColor());
-                textoVerde.setText("Verde: " + (int) sliderVerde.getValue());
-                codigoHex();
-            } 
+        sliderVerde.valueProperty().addListener((obs, oldVal, newVal) -> {
+            circulo.setFill(creaColor());
+            textoVerde.setText("Verde: " + (int) sliderVerde.getValue());
+            codigoHex();
         });
         
-        sliderAzul.valueProperty().addListener(new ChangeListener<Number>() {
-            @Override
-            public void changed(ObservableValue<? extends Number> ov, Number t, Number t1) {
-                circulo.setFill(creaColor());
-                textoAzul.setText("Azul: " + (int) sliderAzul.getValue());
-                codigoHex();
-            } 
+        sliderAzul.valueProperty().addListener((obs, oldVal, newVal) -> {
+            circulo.setFill(creaColor());
+            textoAzul.setText("Azul: " + (int) sliderAzul.getValue());
+            codigoHex();
         });
     }
     
