@@ -4,6 +4,7 @@ import es.ideas.model.Rgb;
 
 import java.net.URL;
 import java.util.ResourceBundle;
+import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -42,8 +43,7 @@ public class PaletaColoresController implements Initializable {
     private Button boton;
     @FXML
     private ListView<Rgb> lista;
-    private Rgb datos = new Rgb();
-    private ObservableList<Rgb> listaRgb = datos.getRgb();
+    private ObservableList<Rgb> listaRgb = FXCollections.observableArrayList();
     @FXML
     private Button boton2;
 

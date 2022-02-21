@@ -4,18 +4,19 @@ import javafx.beans.property.IntegerProperty;
 import javafx.beans.property.SimpleIntegerProperty;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
-import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
 
 /**
  *
  * @author Abel & Narciso
  */
 public class Rgb {
-    private ObservableList<Rgb> listaRGB = FXCollections.observableArrayList();
+    //Guarda el valor del slider rojo
     private final IntegerProperty red = new SimpleIntegerProperty(this, "red", 0);
+    //Valor del slider verde
     private final IntegerProperty green = new SimpleIntegerProperty(this, "green", 0);
+    //Valor del slider azul
     private final IntegerProperty blue = new SimpleIntegerProperty(this, "blue", 0);
+    //Código hexadecimal
     private final StringProperty hex = new SimpleStringProperty(this, "hex", "");
     
     public Rgb() {
@@ -81,9 +82,5 @@ public class Rgb {
     public String toString() {
         //Se sobreescribe el método toString() para que escriba en la lista lo que queramos.
         return "RGB: " + red.get() + " " + green.get() + " " + blue.get() + " - HEX: " + hex.get();
-    }
-
-    public ObservableList<Rgb> getRgb() {
-        return listaRGB;
     }
 }
