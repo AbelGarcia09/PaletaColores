@@ -19,7 +19,7 @@ import javafx.scene.text.Text;
 
 /**
  *
- * @author Abel & Narciso
+ * @author Abel y Narciso
  */
 public class PaletaColoresController implements Initializable {
 
